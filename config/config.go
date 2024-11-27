@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"flag"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -42,7 +41,7 @@ func ParseFile(path string, pb proto.Message, template bool) error {
 	}
 
 	// Read file.
-	contents, err := ioutil.ReadFile(path)
+	contents, err := os.ReadFile(path)
 	if err != nil {
 		return err
 	}
